@@ -1,0 +1,31 @@
+name: Performance Tests
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  k6-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install k6
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y wget
+          wget https://dl.k6.io/releases/k6-v0.44.0-linux-amd64.tar.gz
+          tar -xvf k6-v0.44.0-linux-amd64.tar.gz
+          sudo mv k6-v0.44.0-linux-amd64/k6 /usr/local/bin/
+
+      - name: Run k6 test
+        run: k6 run --vus 5 --duration 30s script.js
+
+      - name: Upload k6 results
+        uses: actions/upload-artifact@v3
+        with:
+          name: k6-results
+          path: ./k6-results
