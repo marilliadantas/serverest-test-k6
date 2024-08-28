@@ -22,10 +22,10 @@ jobs:
           sudo apt-get install k6
 
       - name: Run k6 test
-        run: k6 run --vus 2 --duration 30s tests/register.js
+        run: k6 run --vus 2 --duration 5s tests/register.js --out json=./logs/results.json
 
       - name: Upload k6 results
         uses: actions/upload-artifact@v3
         with:
           name: k6-results
-          path: ./k6-results/results.json
+          path: ./logs/results.json

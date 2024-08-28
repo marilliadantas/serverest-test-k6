@@ -46,6 +46,6 @@ export default function () {
     'valida ID de cadastro': (r) => r.json('_id') !== undefined && r.json('_id').length > 0
   });
 
-  console.log(res.body)
+  // console.log(res.body)
   sleep(1)
 }
