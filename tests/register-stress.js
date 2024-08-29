@@ -30,18 +30,18 @@ export default function () {
   const loginPayload = JSON.stringify({
     email: "fulano@qa.com",
     password: "teste",
-  });
+  })
 
   const loginHeaders = {
     headers: { "Content-Type": "application/json" },
-  };
+  }
 
   const loginRes = http.post(loginUrl, loginPayload, loginHeaders);
   const token = loginRes.json("authorization");
 
   check(token, {
     "token is retrieved": (t) => t !== undefined && t !== "",
-  });
+  })
 
   const url = "https://serverest.dev/usuarios";
   
@@ -50,20 +50,20 @@ export default function () {
     email: `${uuid.v4().substring(24)}@qa.com.br`,
     password: "teste",
     administrador: "true"
-  });
+  })
 
   const headers = {
     headers: {
       "Content-Type": "application/json",
       "Authorization": `${token}`,
     },
-  };
+  }
 
   const res = http.post(url, payload, headers);
 
   check(res, {
     "status should be 201": (r) => r.status === 201,
-  });
+  })
 
   sleep(1);
 }
