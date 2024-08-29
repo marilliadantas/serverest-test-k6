@@ -28,8 +28,9 @@ jobs:
           mkdir -p ./logs
           rm -rf ./logs/* && k6 run tests/register.js
 
-      - name: Upload k6 results
+      - name: Test Report
         uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: k6-results
           path: logs/
