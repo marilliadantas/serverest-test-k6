@@ -56,10 +56,14 @@ jobs:
         with: 
           name: k6-results
 
+      - name: Clear old Pages content
+        run: |
+          rm -rf ./output/*
+
       - name: Upload Pages Artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./
+          path: ./output/
 
       - name: Deploy to GitHub Pages
         id: deployment
