@@ -59,7 +59,7 @@ export default function () {
 
   check(res, {
     "status should be 201": (r) => r.status === 201,
-    'valida mensagem de sucesso': (r) => r.json('message') === 'Cadastro refsdsa',
+    'valida mensagem de sucesso': (r) => r.json('message') === 'Cadastro realizado com sucesso',
     'valida ID de cadastro': (r) => r.json('_id') !== undefined && r.json('_id').length > 0
   })
 
