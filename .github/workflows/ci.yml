@@ -24,13 +24,8 @@ jobs:
       - name: Run k6 test
         run: k6 run tests/register.js --out json=./logs/results.json
 
-      - name: Generate HTML report
-        run: |
-          k6 run tests/register.js --out json=./logs/results.json
-          k6 run --out json=./logs/results.json --out html=./logs/report.html
-      
       - name: Upload k6 results
         uses: actions/upload-artifact@v4
         with:
           name: k6-results
-          path: ./logs/report.html
+          path: ./logs/results.json
