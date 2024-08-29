@@ -52,7 +52,7 @@ jobs:
     - name: Download Artifacts
       uses: actions/download-artifact@v4
       with: 
-        name: k6-report
+        name: k6-results
 
     - name: Setup Pages
       uses: actions/configure-pages@v5
