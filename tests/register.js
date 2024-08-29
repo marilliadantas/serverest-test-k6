@@ -25,7 +25,7 @@ export default function () {
 
   const loginPayload = JSON.stringify({
     email: "fulano@qa.com",
-    password: "teste",
+    password: "test",
   })
 
   const loginHeaders = {
