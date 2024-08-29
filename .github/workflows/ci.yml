@@ -24,7 +24,9 @@ jobs:
           sudo apt-get install k6      
 
       - name: Run k6 test
-        run: k6 run tests/register.js
+        run: |
+          mkdir -p /logs
+          k6 run tests/register.js
 
       - name: Upload k6 results
         uses: actions/upload-artifact@v4
