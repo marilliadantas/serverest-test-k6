@@ -43,7 +43,7 @@ jobs:
       id-token: write
     environment:
       name: github-pages
-      url: https://marilliadantas.github.io/serverest-k6-test/report.html
+      url: https://marilliadantas.github.io/serverest-test-k6/report.html
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
