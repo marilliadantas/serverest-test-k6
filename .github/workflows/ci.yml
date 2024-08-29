@@ -27,6 +27,7 @@ jobs:
         run: |
           mkdir -p ./logs
           k6 run tests/login.js
+          ls -l ./logs
 
       - name: Upload k6 results
         uses: actions/upload-artifact@v4
