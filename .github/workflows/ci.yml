@@ -27,13 +27,12 @@ jobs:
         run: |
           mkdir -p ./logs
           k6 run tests/login.js
-          ls -l ./logs
 
       - name: Upload k6 results
         uses: actions/upload-artifact@v4
         with:
           name: k6-results
-          path: ./logs/report.html
+          path: logs/
 
   deploy:
     name: Deploy GitHub Pages 🌐
@@ -46,7 +45,7 @@ jobs:
       id-token: write
     environment:
       name: github-pages
-      url: https://marilliadantas.github.io/serverest-test-k6/logs/report.html
+      url: https://marilliadantas.github.io/serverest-test-k6/report.html
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
@@ -62,7 +61,7 @@ jobs:
     - name: Upload Pages Artifact
       uses: actions/upload-pages-artifact@v3
       with:
-        path: ./logs
+        path: ./
 
     - name: Deploy to GitHub Pages
       id: deployment
