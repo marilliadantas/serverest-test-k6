@@ -43,7 +43,7 @@ jobs:
       id-token: write
     environment:
       name: github-pages
-      url: https://github.com/marilliadantas/serverest-test-k6/report.html
+      url: https://github.com/marilliadantas.github.io/serverest-test-k6/report.html
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
@@ -64,5 +64,3 @@ jobs:
     - name: Deploy to GitHub Pages
       id: deployment
       uses: actions/deploy-pages@v4
-      with:
-          branch: gh-pages
