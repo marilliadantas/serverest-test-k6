@@ -3,6 +3,14 @@ import { sleep, check } from "k6";
 
 import uuid from './libs/uuid.js';
 
+import { htmlReport } from "https://raw.githubusercontent.com/benc-uk/k6-reporter/main/dist/bundle.js";
+
+export function handleSummary(data) {
+  return {
+    "logs/report.html": htmlReport(data),
+  };
+}
+
 export const options = {
   vus: 10,
   duration: '30s',
