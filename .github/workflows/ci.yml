@@ -60,7 +60,7 @@ jobs:
 
     - name: Clean Old Content
       run: |
-        rm -rf public/*
+        rm -rf logs/*
 
     - name: Upload Pages Artifact
       uses: actions/upload-pages-artifact@v3
