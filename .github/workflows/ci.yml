@@ -25,24 +25,20 @@ jobs:
 
       - name: Run k6 test
         run: |
-          mkdir -p ./k6-results
-          k6 run tests/login.js --out json=k6-results/results.json
-
-      - name: List files in k6-results
-        run: |
-          ls -la k6-results
+          mkdir -p ./logs
+          k6 run register.js
 
       - name: Upload k6 results
         uses: actions/upload-artifact@v4
         with:
           name: k6-results
-          path: k6-results/results.json
+          path: logs/
 
   deploy:
     name: Deploy GitHub Pages 🌐
     runs-on: ubuntu-latest
     needs: 
-      - k6-tests
+    - k6-tests
     permissions:
       contents: read
       pages: write
@@ -51,21 +47,22 @@ jobs:
       name: github-pages
       url: https://marilliadantas.github.io/serverest-test-k6/report.html
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+    - name: Checkout code
+      uses: actions/checkout@v4
 
-      - name: Download Artifacts
-        uses: actions/download-artifact@v4
-        with: 
-          name: k6-results
+    - name: Download Artifacts
+      uses: actions/download-artifact@v4
+      with: 
+        name: k6-results
 
-      - name: List files in downloaded artifacts
-        run: |
-          ls -la
+    - name: Setup Pages
+      uses: actions/configure-pages@v5
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
+    - name: Upload Pages Artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: ./
 
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4
