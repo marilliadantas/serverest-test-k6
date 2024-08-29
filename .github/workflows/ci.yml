@@ -66,11 +66,6 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
-      - name: Upload Pages Artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: k6-results  # Path where the report.html should be located
-
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
