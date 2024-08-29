@@ -2,11 +2,10 @@ name: Performance Tests
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
 
 permissions:
-    contents: read
+  contents: read
 
 jobs:
   k6-tests:
