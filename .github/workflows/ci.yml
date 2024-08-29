@@ -53,14 +53,10 @@ jobs:
     - name: Download Artifacts
       uses: actions/download-artifact@v4
       with: 
-        name: k6-results
+        name: k6-results/report.html
 
     - name: Setup Pages
       uses: actions/configure-pages@v5
-
-    - name: Clean Old Content
-      run: |
-        rm -rf logs/*
 
     - name: Upload Pages Artifact
       uses: actions/upload-pages-artifact@v3
