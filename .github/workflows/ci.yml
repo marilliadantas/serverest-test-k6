@@ -24,9 +24,7 @@ jobs:
           sudo apt-get install k6      
 
       - name: Run k6 test
-        run: |
-          mkdir -p ./logs
-          k6 run tests/register.js
+        run: k6 run tests/register.js
 
       - name: Upload k6 results
         uses: actions/upload-artifact@v4
@@ -55,18 +53,13 @@ jobs:
       with: 
         name: k6-results
 
-    - name: Prepare Public Directory
-      run: |
-          mkdir -p public
-          cp logs/report.html public/report.html
-
     - name: Setup Pages
       uses: actions/configure-pages@v5
 
     - name: Upload Pages Artifact
       uses: actions/upload-pages-artifact@v3
       with:
-        path: public/
+        path: ./
 
     - name: Deploy to GitHub Pages
       id: deployment
