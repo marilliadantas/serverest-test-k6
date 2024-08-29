@@ -59,9 +59,9 @@ jobs:
       uses: actions/configure-pages@v5
 
     - name: Upload Pages Artifact
-      uses: actions/upload-pages-artifact@v3
+      uses: actions/upload-pages-artifact@v4
       with:
-        path: ./logs
+        path: ./
 
     - name: Deploy to GitHub Pages
       id: deployment
