@@ -22,7 +22,11 @@ jobs:
           sudo apt-get install k6
 
       - name: Run k6 test
-        run: k6 run tests/register.js
+        run: |
+          k6 run tests/login.js --out json=./logs/login_results.json
+          k6 run tests/register.js --out json=./logs/register_results.json
+          k6 run tests/register-smoke --out json=./logs/register_results.json
+          k6 run tests/register-load-.js --out json=./logs/register_results.json
 
       - name: Upload k6 results
         uses: actions/upload-artifact@v4
