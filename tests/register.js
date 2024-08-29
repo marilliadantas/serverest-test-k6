@@ -25,7 +25,7 @@ export default function () {
 
   const loginPayload = JSON.stringify({
     email: "fulano@qa.com",
-    password: "test",
+    password: "teste",
   })
 
   const loginHeaders = {
@@ -59,7 +59,7 @@ export default function () {
 
   check(res, {
     "status should be 201": (r) => r.status === 201,
-    'valida mensagem de sucesso': (r) => r.json('message') === 'Cadastro realizado com sucesso',
+    'valida mensagem de sucesso': (r) => r.json('message') === 'Cadastro refsdsa',
     'valida ID de cadastro': (r) => r.json('_id') !== undefined && r.json('_id').length > 0
   })
 

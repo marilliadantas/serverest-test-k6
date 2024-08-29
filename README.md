@@ -1,4 +1,4 @@
-# Projeto de Testes com K6
+## Projeto de Testes com K6
 Este projeto é voltado para estudos e práticas de testes de performance utilizando o **K6**. O objetivo é explorar a ferramenta criando diferentes cenários de carga e gerar relatórios detalhados em formato HTML para análise.
 
 ### 🚀 Tecnologias
