@@ -10,16 +10,16 @@ Este projeto é voltado para estudos e práticas de testes de performance utiliz
 
 Certifique-se de ter o **[Node.js](https://nodejs.org/)** v16 ou superior instalado em sua máquina para executar o projeto.
 
-### 📋 Pré-requisitos
+### Pré-requisitos
 
 Antes de rodar os testes, você deve ter o **[K6](https://k6.io/docs/getting-started/installation/)** instalado. <br> O K6 é uma ferramenta de código aberto para realizar testes de carga e performance.
 
-### ⚙️ Instalando o K6
+### Instalando o K6
 
 Siga as instruções para instalar o K6 de acordo com o seu sistema operacional: <br>
 [Instruções de Instalação do K6](https://k6.io/docs/get-started/installation/)
 
-### 📥 Clonando o Projeto
+### Clonando o Projeto
 
 Para clonar o projeto, use o seguinte comando:
 
@@ -27,7 +27,7 @@ Para clonar o projeto, use o seguinte comando:
 git clone https://github.com/marilliadantas/serverest-test-k6.git
 ```
 
-### 💻 Executando os testes
+### Executando os testes
 ```sh
 cd serverest-test-k6/tests
 k6 run register.js
