@@ -27,8 +27,8 @@ jobs:
           k6 run tests/register.js --out json=./logs/register_results.json
           k6 run tests/register-smoke --out json=./logs/register_results.json
 
-      - name: Upload k6 results
-        uses: actions/upload-artifact@v4
-        with:
-          name: k6-results
-          path: ./logs/results.json
+      # - name: Upload k6 results
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: k6-results
+      #     path: ./logs/results.json
