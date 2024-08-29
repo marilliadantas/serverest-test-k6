@@ -46,7 +46,7 @@ jobs:
       url: https://marilliadantas.github.io/serverest-test-k6/report.html
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Download Artifacts
       uses: actions/download-artifact@v4
