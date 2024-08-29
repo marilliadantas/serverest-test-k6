@@ -25,14 +25,14 @@ jobs:
 
       - name: Run k6 test
         run: |
-          mkdir -p /logs
+          mkdir -p ./logs
           k6 run tests/register.js
 
       - name: Upload k6 results
         uses: actions/upload-artifact@v4
         with:
           name: k6-results
-          path: logs/report.html
+          path: logs/
 
   deploy:
     name: Deploy GitHub Pages 🌐
@@ -57,6 +57,10 @@ jobs:
 
     - name: Setup Pages
       uses: actions/configure-pages@v5
+
+    - name: Clean Old Content
+      run: |
+        rm -rf public/*
 
     - name: Upload Pages Artifact
       uses: actions/upload-pages-artifact@v3
